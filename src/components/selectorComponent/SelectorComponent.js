@@ -13,7 +13,7 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 			{appContext.subject && (
 				<Form.Item name='part' className={styles.input}>
 					<InputNumber
-						size='medium'
+						size='small'
 						min={1}
 						max={2}
 						className={styles.input}
@@ -23,13 +23,13 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 			)}
 			{appContext.subject !== 'Русский язык' && appContext.subject !== 'Белорусский язык' && (
 				<Form.Item name='page' className={styles.input}>
-					<InputNumber size='medium' min={1} className={styles.input} placeholder='Страница' />
+					<InputNumber size='small' min={1} className={styles.input} placeholder='Страница' />
 				</Form.Item>
 			)}
 			{appContext.subject !== 'Математика' && appContext.subject !== 'Английский язык' && (
 				<Form.Item name='exercise' className={styles.input}>
 					<InputNumber
-						size='medium'
+						size='small'
 						min={1}
 						className={styles.input}
 						placeholder='Упражнение'
@@ -37,7 +37,7 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 				</Form.Item>
 			)}
 			<Form.Item>
-				<Button htmlType='submit' type='primary' size='medium'>
+				<Button htmlType='submit' type='primary' size='small'>
 					Поиск
 				</Button>
 			</Form.Item>

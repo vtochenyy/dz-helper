@@ -67,7 +67,7 @@ const MainPage = () => {
 				<div className={styles.segmentedContainer}>
 					<Segmented
 						className={styles.segmented}
-						size='large'
+						size='medium'
 						options={['Математика', 'Русский язык', 'Белорусский язык', 'Английский язык']}
 						value={appContext.subject}
 						onChange={appContext.setSubject}
