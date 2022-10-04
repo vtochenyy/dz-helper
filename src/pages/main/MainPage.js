@@ -102,7 +102,7 @@ const MainPage = () => {
 					{appContext.subject === 'Белорусский язык' && (
 						<iframe
 							title='dsdsds'
-							src={`https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`}
+							src={`https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`}
 						></iframe>
 					)}
 				</>
