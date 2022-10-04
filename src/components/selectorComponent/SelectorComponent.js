@@ -10,17 +10,17 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 	};
 	return (
 		<Form className={styles.container} onFinish={onFinish}>
-			{appContext.subject !== 'Русский язык' && (
+			{appContext.subject && (
 				<Form.Item name='part' className={styles.input}>
 					<InputNumber size='medium' min={1} className={styles.input} placeholder='Часть' />
 				</Form.Item>
 			)}
-			{appContext.subject !== 'Русский язык' && (
+			{appContext.subject !== 'Русский язык' && appContext.subject !== 'Белорусский язык' && (
 				<Form.Item name='page' className={styles.input}>
 					<InputNumber size='medium' min={1} className={styles.input} placeholder='Страница' />
 				</Form.Item>
 			)}
-			{appContext.subject !== 'Русский язык' && (
+			{appContext.subject !== 'Математика' && appContext.subject !== 'Английский язык' && (
 				<Form.Item name='exercise' className={styles.input}>
 					<InputNumber
 						size='medium'
