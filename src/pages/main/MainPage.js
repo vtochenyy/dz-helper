@@ -12,7 +12,7 @@ const MainPage = () => {
 	const containerToTitileRef = useRef();
 
 	useEffect(() => {
-		setTimeout(() => animateContainerToTitle(), 1000);
+		setTimeout(() => animateContainerToTitle(), 10000);
 	}, []);
 
 	const animateContainerToTitle = () => {
@@ -80,10 +80,32 @@ const MainPage = () => {
 			)}
 			{JSON.stringify(selectorSettings)}
 			{appContext.subject && !avaVisible && Object.keys(selectorSettings).length > 0 && (
-				<iframe
-					title='dsdsds'
-					src={`https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`}
-				></iframe>
+				<>
+					{appContext.subject === 'Английский язык' && (
+						<iframe
+							title='dsdsds'
+							src={`https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`}
+						></iframe>
+					)}
+					{appContext.subject === 'Математика' && (
+						<iframe
+							title='dsdsds'
+							src={`https://megaresheba.ru/gdz/matematika/4-klass/muravyova/${selectorSettings.part}-${selectorSettings.page}`}
+						></iframe>
+					)}
+					{appContext.subject === 'Русский язык' && (
+						<iframe
+							title='dsdsds'
+							src={`https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`}
+						></iframe>
+					)}
+					{appContext.subject === 'Белорусский язык' && (
+						<iframe
+							title='dsdsds'
+							src={`https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`}
+						></iframe>
+					)}
+				</>
 			)}
 		</div>
 	);

@@ -12,7 +12,13 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 		<Form className={styles.container} onFinish={onFinish}>
 			{appContext.subject && (
 				<Form.Item name='part' className={styles.input}>
-					<InputNumber size='medium' min={1} className={styles.input} placeholder='Часть' />
+					<InputNumber
+						size='medium'
+						min={1}
+						max={2}
+						className={styles.input}
+						placeholder='Часть'
+					/>
 				</Form.Item>
 			)}
 			{appContext.subject !== 'Русский язык' && appContext.subject !== 'Белорусский язык' && (
