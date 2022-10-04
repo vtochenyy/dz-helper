@@ -23,28 +23,28 @@
 }
 
 .containerToAva {
+	border-left: 2px solid black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-left: 20px;
 }
 
 .avaIMG {
-	width: 15vh;
+	width: 20vh;
 	border-radius: 100%;
 }
 
 .titleText {
 	height: 100%;
 	width: 40%;
-	font-size: 2vh;
-	border-right: 2px solid black;
-	margin-right: 30px;
+	font-size: 2.5vh;
 	padding-right: 10px;
 }
 
 .avaText {
-	font-size: 1vh;
+	font-size: 1.5vh;
 	font-weight: 500;
 }
 
