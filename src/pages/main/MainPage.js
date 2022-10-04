@@ -78,7 +78,7 @@ const MainPage = () => {
 					/>
 				</div>
 			)}
-			{JSON.stringify(selectorSettings)}
+			{/* {JSON.stringify(selectorSettings)} */}
 			{appContext.subject && !avaVisible && Object.keys(selectorSettings).length > 0 && (
 				<>
 					{appContext.subject === 'Английский язык' && (
