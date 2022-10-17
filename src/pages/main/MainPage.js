@@ -52,17 +52,7 @@ const MainPage = () => {
 					</div>
 				</div>
 			)}
-			{/* {!avaVisible && (
-				<div className={styles.containerToSubjects}>
-					{SUBJECT_CONFIG.map((el, index) => {
-						return (
-							<div style={{ color: el.color, border: `1px solid ${el.color}` }} key={index}>
-								{el.title}
-							</div>
-						);
-					})}
-				</div>
-			)} */}
+
 			{!avaVisible && (
 				<div className={styles.segmentedContainer}>
 					<Segmented
@@ -72,39 +62,26 @@ const MainPage = () => {
 						value={appContext.subject}
 						onChange={appContext.setSubject}
 					/>
-					<SelectorComponent
-						selectorSettings={selectorSettings}
-						setSelectorSettings={setSelectorSettings}
-					/>
+					<SelectorComponent setSelectorSettings={setSelectorSettings} />
 				</div>
 			)}
-			{/* {JSON.stringify(selectorSettings)} */}
+
 			{appContext.subject && !avaVisible && Object.keys(selectorSettings).length > 0 && (
 				<>
-					{appContext.subject === 'Английский язык' && (
-						<iframe
-							title='dsdsds'
-							src={`https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`}
-						></iframe>
-					)}
-					{appContext.subject === 'Математика' && (
-						<iframe
-							title='dsdsds'
-							src={`https://megaresheba.ru/gdz/matematika/4-klass/muravyova/${selectorSettings.part}-${selectorSettings.page}`}
-						></iframe>
-					)}
-					{appContext.subject === 'Русский язык' && (
-						<iframe
-							title='dsdsds'
-							src={`https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`}
-						></iframe>
-					)}
-					{appContext.subject === 'Белорусский язык' && (
-						<iframe
-							title='dsdsds'
-							src={`https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`}
-						></iframe>
-					)}
+					<iframe
+						title='dsdsds'
+						src={
+							appContext.subject === 'Английский язык'
+								? `https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`
+								: appContext.subject === 'Математика'
+								? `https://megaresheba.ru/gdz/matematika/4-klass/muravyova/${selectorSettings.part}-${selectorSettings.page}`
+								: appContext.subject === 'Русский язык'
+								? `https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`
+								: appContext.subject === 'Белорусский язык'
+								? `https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`
+								: null
+						}
+					></iframe>
 				</>
 			)}
 		</div>
