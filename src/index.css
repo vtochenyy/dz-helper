@@ -1,6 +1,7 @@
 @import 'antd/dist/antd.css';
 
 body {
+	background-color: rgb(211, 211, 188);
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	padding: 0;

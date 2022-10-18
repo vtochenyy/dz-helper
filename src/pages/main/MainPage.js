@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
 import avaIMG from '../../assests/images/ava.jpg';
 import styles from './styles.module.css';
-import { Segmented } from 'antd';
+import { Card, Segmented } from 'antd';
 import SelectorComponent from '../../components/selectorComponent/SelectorComponent';
 
 const MainPage = () => {
@@ -55,6 +55,7 @@ const MainPage = () => {
 
 			{!avaVisible && (
 				<div className={styles.segmentedContainer}>
+					{/* <Card> */}
 					<Segmented
 						className={styles.segmented}
 						size='medium'
@@ -63,6 +64,7 @@ const MainPage = () => {
 						onChange={appContext.setSubject}
 					/>
 					<SelectorComponent setSelectorSettings={setSelectorSettings} />
+					{/* </Card> */}
 				</div>
 			)}
 
