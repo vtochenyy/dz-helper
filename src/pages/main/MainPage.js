@@ -12,7 +12,7 @@ const MainPage = () => {
 	const containerToTitileRef = useRef();
 
 	useEffect(() => {
-		setTimeout(() => animateContainerToTitle(), 10000);
+		setTimeout(() => animateContainerToTitle(), 100);
 	}, []);
 
 	const animateContainerToTitle = () => {
