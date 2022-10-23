@@ -3,13 +3,18 @@ import { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import styles from './styles.module.css';
 
-const SelectorComponent = ({ setSelectorSettings }) => {
+const SelectorComponent = ({ setSelectorSettings, setIframeVisible }) => {
 	const appContext = useContext(AppContext);
 	const onFinish = (values) => {
 		setSelectorSettings(values);
+		setIframeVisible(true);
 	};
 	return (
-		<Form className={styles.container} onFinish={onFinish}>
+		<Form
+			// onClick={() => setIframeVisible(false)}
+			className={styles.container}
+			onFinish={onFinish}
+		>
 			{appContext.subject && appContext.subject !== 'Английский язык (грамматика)' && (
 				<Form.Item name='part' className={styles.input}>
 					<InputNumber

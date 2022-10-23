@@ -8,6 +8,7 @@ import SelectorComponent from '../../components/selectorComponent/SelectorCompon
 const MainPage = () => {
 	const appContext = useContext(AppContext);
 	const [avaVisible, setAvaVisible] = useState(true);
+	const [iframeVisible, setIframeVisible] = useState(false);
 	const [selectorSettings, setSelectorSettings] = useState({});
 	const containerToTitileRef = useRef();
 
@@ -67,33 +68,42 @@ const MainPage = () => {
 							'Английский язык (грамматика)',
 						]}
 						value={appContext.subject}
-						onChange={appContext.setSubject}
+						onChange={(value) => {
+							appContext.setSubject(value);
+							setIframeVisible(false);
+						}}
 					/>
-					<SelectorComponent setSelectorSettings={setSelectorSettings} />
+					<SelectorComponent
+						setSelectorSettings={setSelectorSettings}
+						setIframeVisible={setIframeVisible}
+					/>
 					{/* </Card> */}
 				</div>
 			)}
 
-			{appContext.subject && !avaVisible && Object.keys(selectorSettings).length > 0 && (
-				<>
-					<iframe
-						title='dsdsds'
-						src={
-							appContext.subject === 'Английский язык'
-								? `https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`
-								: appContext.subject === 'Математика'
-								? `https://megaresheba.ru/gdz/matematika/4-klass/muravyova/${selectorSettings.part}-${selectorSettings.page}`
-								: appContext.subject === 'Русский язык'
-								? `https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`
-								: appContext.subject === 'Белорусский язык'
-								? `https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`
-								: appContext.subject === 'Английский язык (грамматика)'
-								? `https://megaresheba.ru/publ/gdz/anglijskij_jazyk/4_klass/grammar-sevrukova/${selectorSettings.page}-str`
-								: null
-						}
-					></iframe>
-				</>
-			)}
+			{appContext.subject &&
+				!avaVisible &&
+				Object.keys(selectorSettings).length > 0 &&
+				iframeVisible && (
+					<>
+						<iframe
+							title='dsdsds'
+							src={
+								appContext.subject === 'Английский язык'
+									? `https://megaresheba.ru/index/b01/0-509/chi-${selectorSettings.part}-${selectorSettings.page}`
+									: appContext.subject === 'Математика'
+									? `https://megaresheba.ru/gdz/matematika/4-klass/muravyova/${selectorSettings.part}-${selectorSettings.page}`
+									: appContext.subject === 'Русский язык'
+									? `https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`
+									: appContext.subject === 'Белорусский язык'
+									? `https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`
+									: appContext.subject === 'Английский язык (грамматика)'
+									? `https://megaresheba.ru/publ/gdz/anglijskij_jazyk/4_klass/grammar-sevrukova/${selectorSettings.page}-str`
+									: null
+							}
+						></iframe>
+					</>
+				)}
 		</div>
 	);
 };
