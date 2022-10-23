@@ -10,7 +10,7 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 	};
 	return (
 		<Form className={styles.container} onFinish={onFinish}>
-			{appContext.subject && (
+			{appContext.subject && appContext.subject !== 'Английский язык (грамматика)' && (
 				<Form.Item name='part' className={styles.input}>
 					<InputNumber
 						size='small'
@@ -26,16 +26,18 @@ const SelectorComponent = ({ setSelectorSettings }) => {
 					<InputNumber size='small' min={1} className={styles.input} placeholder='Страница' />
 				</Form.Item>
 			)}
-			{appContext.subject !== 'Математика' && appContext.subject !== 'Английский язык' && (
-				<Form.Item name='exercise' className={styles.input}>
-					<InputNumber
-						size='small'
-						min={1}
-						className={styles.input}
-						placeholder='Упражнение'
-					/>
-				</Form.Item>
-			)}
+			{appContext.subject !== 'Математика' &&
+				appContext.subject !== 'Английский язык' &&
+				appContext.subject !== 'Английский язык (грамматика)' && (
+					<Form.Item name='exercise' className={styles.input}>
+						<InputNumber
+							size='small'
+							min={1}
+							className={styles.input}
+							placeholder='Упражнение'
+						/>
+					</Form.Item>
+				)}
 			<Form.Item>
 				<Button htmlType='submit' type='primary' size='small'>
 					Поиск

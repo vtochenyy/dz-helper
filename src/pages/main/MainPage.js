@@ -59,7 +59,13 @@ const MainPage = () => {
 					<Segmented
 						className={styles.segmented}
 						size='medium'
-						options={['Математика', 'Русский язык', 'Белорусский язык', 'Английский язык']}
+						options={[
+							'Математика',
+							'Русский язык',
+							'Белорусский язык',
+							'Английский язык',
+							'Английский язык (грамматика)',
+						]}
 						value={appContext.subject}
 						onChange={appContext.setSubject}
 					/>
@@ -81,6 +87,8 @@ const MainPage = () => {
 								? `https://megaresheba.ru/gdz/russkij-yazyk/4-klass/antipova/${selectorSettings.part}-chast-1-${selectorSettings.exercise}`
 								: appContext.subject === 'Белорусский язык'
 								? `https://megaresheba.ru/publ/gdz/belorusskij_jazyk/4_klass/sviridenko/${selectorSettings.part}-chast-${selectorSettings.exercise}`
+								: appContext.subject === 'Английский язык (грамматика)'
+								? `https://megaresheba.ru/publ/gdz/anglijskij_jazyk/4_klass/grammar-sevrukova/${selectorSettings.page}-str`
 								: null
 						}
 					></iframe>
